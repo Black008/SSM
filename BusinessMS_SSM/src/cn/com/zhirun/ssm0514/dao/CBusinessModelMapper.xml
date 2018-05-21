@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.zhirun.ssm0514.dao.CBusinessModelMapper">
+  <resultMap id="BaseResultMap" type="cn.com.zhirun.ssm0514.model.BusinessModel">
+    <id column="businessId" jdbcType="VARCHAR" property="businessid" />
+    <result column="businessName" jdbcType="VARCHAR" property="businessname" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="businessKinds" jdbcType="VARCHAR" property="businesskinds" />
+    <result column="businessaddress" jdbcType="VARCHAR" property="businessaddress" />
+    <result column="detailaddress" jdbcType="VARCHAR" property="detailaddress" />
+    <result column="salary" jdbcType="INTEGER" property="salary" />
+    <result column="cred" jdbcType="VARCHAR" property="cred" />
+    <result column="uppda" jdbcType="VARCHAR" property="uppda" />
+    <result column="flg" jdbcType="INTEGER" property="flg" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+  </resultMap>
+
+  <!--添加商家-->
+  <insert id="insertBusiness" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+   insert into t_business (businessId, businessName, phone,
+      businessKinds, businessaddress, detailaddress,
+      salary, cred, uppda,
+      flg, comment)
+    values (#{businessid,jdbcType=VARCHAR}, #{businessname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+      #{businesskinds,jdbcType=VARCHAR}, #{businessaddress,jdbcType=VARCHAR}, #{detailaddress,jdbcType=VARCHAR},
+      #{salary,jdbcType=INTEGER}, #{cred,jdbcType=VARCHAR}, #{uppda,jdbcType=VARCHAR},
+      #{flg,jdbcType=INTEGER}, #{comment,jdbcType=VARCHAR})
+  </insert>
+
+  <!--查询商家-->
+  <select id="selectByBusiness" resultMap="BaseResultMap" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+    select businessId, businessName, phone, businessKinds, businessaddress, detailaddress,
+    salary
+    from t_business
+    <where>
+      <if test="null!=businessid and ''!=businessid">
+        and businessId like '%${businessid}%'
+      </if>
+      <if test="null!=businessname and ''!=businessname">
+        and businessName like '%${businessname}%'
+      </if>
+      <if test="null!=phone and ''!=phone">
+        and phone = #{phone}
+      </if>
+      <if test="null!=businesskinds and ''!=businesskinds">
+        and businessKinds = #{businesskinds}
+      </if>
+      <if test="null!=businessaddress and ''!=businessaddress">
+        and businessaddress = #{businessaddress}
+      </if>
+      <if test="null!=detailaddress and ''!=detailaddress">
+        and detailaddress = like '%${detailaddress}%'
+      </if>
+      <if test="null!=salaryFrom and ''!=salaryFrom">
+        and salary &gt;= #{salaryFrom}
+      </if>
+      <if test="null!=salaryTo and ''!=salaryTo">
+        and salary &lt;= #{salaryTo}
+      </if>
+      and flg=0
+  </where>
+  limit 0,5
+  </select>
+
+
+  <!--其他按钮查询商家-->
+  <select id="selectOtherBtn" resultMap="BaseResultMap" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+    select businessId, businessName, phone, businessKinds, businessaddress, detailaddress,
+    salary
+    from t_business
+    <where>
+      <if test="null!=businessOther.businessid and ''!=businessOther.businessid">
+        and businessId like '%${businessOther.businessid}%'
+      </if>
+      <if test="null!=businessOther.businessname and ''!=businessOther.businessname">
+        and businessName like '%${businessOther.businessname}%'
+      </if>
+      <if test="null!=businessOther.phone and ''!=businessOther.phone">
+        and phone = #{businessOther.phone}
+      </if>
+      <if test="null!=businessOther.businesskinds and ''!=businessOther.businesskinds">
+        and businessKinds = #{businessOther.businesskinds}
+      </if>
+      <if test="null!=businessOther.businessaddress and ''!=businessOther.businessaddress">
+        and businessaddress = #{businessOther.businessaddress}
+      </if>
+      <if test="null!=businessOther.detailaddress and ''!=businessOther.detailaddress">
+        and detailaddress = like '%${businessOther.detailaddress}%'
+      </if>
+      <if test="null!=businessOther.salaryFrom and ''!=businessOther.salaryFrom">
+        and salary &gt;= #{businessOther.salaryFrom}
+      </if>
+      <if test="null!=businessOther.salaryTo and ''!=businessOther.salaryTo">
+        and salary &lt;= #{businessOther.salaryTo}
+      </if>
+      and flg=0
+    </where>
+    limit #{pages.num},#{pages.ShowPages}
+  </select>
+
+  <!--查询商家返回总条数-->
+  <select id="selectTotal" resultType="java.lang.Integer" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+  select count(*)
+  from t_business
+    <where>
+      <if test="null!=businessid and ''!=businessid">
+        and businessId like '%${businessid}%'
+      </if>
+      <if test="null!=businessname and ''!=businessname">
+        and businessName like '%${businessname}%'
+      </if>
+      <if test="null!=phone and ''!=phone">
+        and phone = #{phone}
+      </if>
+      <if test="null!=businesskinds and ''!=businesskinds">
+        and businessKinds = #{businesskinds}
+      </if>
+      <if test="null!=businessaddress and ''!=businessaddress">
+        and businessaddress = #{businessaddress}
+      </if>
+      <if test="null!=detailaddress and ''!=detailaddress">
+        and detailaddress = like '%${detailaddress}%'
+      </if>
+      <if test="null!=salaryFrom and ''!=salaryFrom">
+        and salary &gt;= #{salaryFrom}
+      </if>
+      <if test="null!=salaryTo and ''!=salaryTo">
+        and salary &lt;= #{salaryTo}
+      </if>
+      and flg=0
+    </where>
+  </select>
+
+  <!-- 添加商家检查商家是否存在-->
+  <select id="checkaddBusiness" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel" resultType="java.lang.Integer">
+      Select COUNT(*) from t_business where businessName = #{businessname}
+  </select>
+
+  <!--修改页面按保存按钮-->
+  <update id="updateModifyBusiness" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+    update t_business
+    set businessName = #{businessname,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      businessKinds = #{businesskinds,jdbcType=VARCHAR},
+      businessaddress = #{businessaddress,jdbcType=VARCHAR},
+      detailaddress = #{detailaddress,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=INTEGER},
+      cred = #{cred,jdbcType=VARCHAR},
+      uppda = #{uppda,jdbcType=VARCHAR},
+      flg = #{flg,jdbcType=INTEGER},
+      comment = #{comment,jdbcType=VARCHAR}
+    where businessId = #{businessid,jdbcType=VARCHAR}
+  </update>
+
+  <!--删除更新-->
+  <update id="updateDeleteBusiness" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+    update t_business
+    set flg = 1
+    where businessId in
+    <foreach collection="array" item="businessid" open="(" close=")"
+             separator=",">
+       #{businessid}
+    </foreach>
+
+  </update>
+</mapper>

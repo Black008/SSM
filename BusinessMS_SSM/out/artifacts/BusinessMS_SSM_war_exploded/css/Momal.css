@@ -1,0 +1,214 @@
+/*初始化*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.a{
+    text-decoration:none;
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    margin: 0;
+    padding: 0;
+}
+
+/*顶部*/
+.boxrow{
+    width: 80%;
+    height: 70px;
+    margin: 0 auto;
+}
+.time{
+    line-height: 70px;
+}
+/*导航*/
+.boxnavmax{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(158,185,218);
+}
+.ul1{
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    line-height: 48px;
+    padding-left: 200px;
+    margin-bottom: 0;
+}
+.ul1 li{
+    padding: 0 50px;
+    text-align: center;
+    float: left;
+    list-style: none;
+    color: white;
+}
+.ul1 li:hover{
+    background-color: rgb(93,137,189);
+}
+.ul1 li a{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+.ul1 li span{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+}
+.ul1 li a:hover{
+    text-shadow: 5px 3px 3px black;
+}
+.ul2{
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    line-height: 50px;
+}
+.ul2 li a{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    float: right;
+    padding-right: 50px;
+    color: yellow;
+}
+.ul2 li a:hover{
+    text-shadow: 5px 3px 3px black;
+}
+
+/*商家管理*/
+.boxlg{
+    display: none;
+    width: 100%;
+    height: 100px;
+    position:absolute;
+    z-index: 100;
+    background-color: white;
+    overflow: hidden;
+}
+.boxlg1{
+    float: left;
+    border-right: 1px black solid;
+    overflow: hidden;
+    width: 50%;
+}
+.boxlg11{
+    width: 200px;
+}
+.boxlg1 *{
+    float: right;
+}
+.boxlg1 img{
+    width: 60px;
+    height: 60px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.boxlg1 span{
+    margin-right: 130px;
+    font-family: "Microsoft YaHei";
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 100px;
+}
+.boxlg1 span:hover{
+    font-size: 30px;
+    color: yellow;
+}
+.boxlg2{
+    float: left;
+    overflow: hidden;
+    width: 50%;
+}
+.boxlg2 *{
+    float: left;
+}
+.boxlg2 img{
+    width: 60px;
+    height: 60px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-left: 130px;
+}
+.boxlg2 span{
+    font-family: "Microsoft YaHei";
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 100px;
+}
+.boxlg2 span:hover{
+    font-size: 30px;
+    color: yellow;
+}
+.boxnav2 span:hover{
+    text-shadow: 5px 3px 3px black;
+}
+
+
+
+/*底部导航*/
+.boxfooter{
+    background-color: rgb(51,51,51);
+    height: 150px;
+    overflow: hidden;
+    margin-top: 0;
+}
+.boxfooter11{
+    width: 60%;
+    float: left;
+    text-align: center;
+    padding-left: 500px;
+    margin-top: 20px;
+}
+.boxfooter22{
+    width: 40%;
+    float: left;
+    margin-top: 20px;
+}
+.boxfooter22 h4{
+    color: rgb(138, 143, 145);
+}
+.boxfooter11 p{
+    margin-top: 10px;
+    color: rgb(138, 143, 145);
+}
+.boxfooter2{
+    width:50px;
+    height: 50px;
+}
+.boxfooter11 .boxfooterul{
+    padding-left: 75px;
+    overflow: hidden;
+    list-style: none;
+}
+.boxfooterul li{
+    float: left;
+    padding: 0px 20px;
+}
+.boxfooterul li a{
+    text-decoration: none;
+    color: rgb(138, 143, 145);
+    font-size: 8px;
+}
+.boxfooterulli{
+    border-right: 1px rgb(138, 143, 145) solid;
+    border-left: 1px rgb(138, 143, 145) solid;
+}
+
+
+
+
+
+
+
+

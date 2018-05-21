@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.zhirun.ssm0514.dao.BusinessModelMapper">
+  <resultMap id="BaseResultMap" type="cn.com.zhirun.ssm0514.model.BusinessModel">
+    <id column="businessId" jdbcType="VARCHAR" property="businessid" />
+    <result column="businessName" jdbcType="VARCHAR" property="businessname" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="businessKinds" jdbcType="VARCHAR" property="businesskinds" />
+    <result column="businessaddress" jdbcType="VARCHAR" property="businessaddress" />
+    <result column="detailaddress" jdbcType="VARCHAR" property="detailaddress" />
+    <result column="salary" jdbcType="INTEGER" property="salary" />
+    <result column="cred" jdbcType="VARCHAR" property="cred" />
+    <result column="uppda" jdbcType="VARCHAR" property="uppda" />
+    <result column="flg" jdbcType="INTEGER" property="flg" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_business
+    where businessId = #{businessid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+    insert into t_business (businessId, businessName, phone, 
+      businessKinds, businessaddress, detailaddress, 
+      salary, cred, uppda, 
+      flg, comment)
+    values (#{businessid,jdbcType=VARCHAR}, #{businessname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{businesskinds,jdbcType=VARCHAR}, #{businessaddress,jdbcType=VARCHAR}, #{detailaddress,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=INTEGER}, #{cred,jdbcType=VARCHAR}, #{uppda,jdbcType=VARCHAR}, 
+      #{flg,jdbcType=INTEGER}, #{comment,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.zhirun.ssm0514.model.BusinessModel">
+    update t_business
+    set businessName = #{businessname,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      businessKinds = #{businesskinds,jdbcType=VARCHAR},
+      businessaddress = #{businessaddress,jdbcType=VARCHAR},
+      detailaddress = #{detailaddress,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=INTEGER},
+      cred = #{cred,jdbcType=VARCHAR},
+      uppda = #{uppda,jdbcType=VARCHAR},
+      flg = #{flg,jdbcType=INTEGER},
+      comment = #{comment,jdbcType=VARCHAR}
+    where businessId = #{businessid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select businessId, businessName, phone, businessKinds, businessaddress, detailaddress, 
+    salary, cred, uppda, flg, comment
+    from t_business
+    where businessId = #{businessid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select businessId, businessName, phone, businessKinds, businessaddress, detailaddress, 
+    salary, cred, uppda, flg, comment
+    from t_business
+  </select>
+</mapper>

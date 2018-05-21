@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.zhirun.ssm0514.dao.CUserModelMapper">
+  <resultMap id="BaseResultMap" type="cn.com.zhirun.ssm0514.model.UserModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user" jdbcType="VARCHAR" property="user" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="credate" jdbcType="VARCHAR" property="credate" />
+    <result column="upddate" jdbcType="VARCHAR" property="upddate" />
+    <result column="deleflg" jdbcType="INTEGER" property="deleflg" />
+  </resultMap>
+  <!--登陆时检查用户名是否存在-->
+  <select id="checkloginUser" resultType="UserModel" parameterType="cn.com.zhirun.ssm0514.model.UserModel">
+    Select user from t_user
+    where user = #{user}
+  </select>
+  <!--登陆时检查用户名密码是否正确-->
+  <select id="checkPwdisexist" resultType="java.lang.Integer" parameterType="cn.com.zhirun.ssm0514.model.UserModel">
+ Select count(*) count from t_user
+ where user = #{user} and pwd = #{pwd}
+  </select>
+  <!--注册时向数据库插入数据-->
+  <insert id="insertUser" parameterType="cn.com.zhirun.ssm0514.model.UserModel">
+  insert into t_user (user,pwd,credate,
+      upddate)
+    values (#{user,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{credate,jdbcType=VARCHAR},
+      #{upddate,jdbcType=VARCHAR})
+  </insert>
+</mapper>

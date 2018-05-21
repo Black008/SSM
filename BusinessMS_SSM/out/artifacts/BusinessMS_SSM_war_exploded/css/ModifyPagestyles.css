@@ -1,0 +1,204 @@
+
+/*初始化*/
+*{
+    margin: 0;
+    padding: 0;
+}
+.a{
+    text-decoration:none;
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    margin: 0;
+    padding: 0;
+}
+
+
+/*背景图*/
+.img1{
+    width: 100%;
+    height: 635px;
+    background: url("../img/image12.jpg");
+    background-size: 100%;
+    overflow: hidden;
+}
+/*中间内容*/
+/*上半部分*/
+.img1 .boxmaxbg{
+    float: left;
+    width: 90%;
+    height: 450px;
+    margin-left: 85px;
+    margin-top: 50px;
+    background-color: rgb(158,185,218);
+}
+.img1 .boxmaxbg input{
+    border-radius: 8px;
+    height: 40px;
+
+}
+.img1 .boxmaxbg form{
+    margin-top: 90px;
+
+}
+.img1 .boxmaxbg .flg{
+    width: 200px;
+}
+.img1 .boxmaxbg .flg1{
+    width: 200px;
+    margin-left: 36px;
+}
+.img1 .boxmaxbg span{
+    font-size: 20px;
+    font-weight: bold;
+}
+.ul11 .s222{
+    width: 100px;
+    text-align: left;
+}
+/*第一行*/
+.img1 .boxmaxbg .checkul1{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.checkul1 li{
+    width: 33%;
+    float: left;
+    padding-left: 80px;
+}
+.checkul1 li span{
+    padding-right: 20px;
+}
+/*第二行*/
+.img1 .boxmaxbg .checkul2{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.checkul2 li{
+    float: left;
+    padding-left: 69px;
+    overflow: hidden;
+}
+.checkul2 .li2{
+    padding-left: 150px;
+}
+.checkul2 li *{
+    float:left;
+}
+.checkul2 li span{
+    padding-right: 10px;
+    padding-left: 10px;
+    /*width: 20px;*/
+}
+.checkul2 li input[type=radio]{
+    margin-top: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+/*第三行*/
+.img1 .boxmaxbg .checkul3{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.checkul3 .first{
+    float: left;
+    width: 33%;
+    padding-left: 80px;
+}
+.checkul3 .sen{
+    float: left;
+    width: 66%;
+    padding-left: 80px;
+}
+.checkul3 li span{
+    padding-right: 5px;
+}
+.inputbox{
+    width: 590px;
+}
+.checkul3 .first select{
+    border-radius: 8px;
+    width: 196px;
+    height: 40px;
+}
+/*第四行*/
+.img1 .boxmaxbg .checkul4{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.checkul4 li{
+    float: left;
+    padding-left: 77px;
+}
+.checkul4 li span{
+    padding-right: 5px;
+}
+.checkul4 .spanli{
+    padding-right: 60px;
+}
+.checkul4 li .spanli1{
+    padding-left: 8px;
+}
+.checkul4 .spanli2{
+    padding-left: 150px;
+}
+.checkul4 li .people{
+    padding-left: 50px;
+}
+/*第五行*/
+.img1 .boxmaxbg .checkul5{
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.checkul5 li{
+    float: left;
+    padding-left: 80px;
+}
+.clear{
+    width: 80px;
+    background-color: rgb(217,83,79);
+    font-size: 20px;
+    margin-left: 175px;
+    color: white;
+    border: none;
+    box-shadow: 2px 2px 2px black;
+}
+.find{
+    width: 80px;
+    background-color: rgb(51,122,183);
+    font-size: 20px;
+    margin-left: 325px;
+    color: white;
+    border: none;
+    box-shadow: 2px 2px 2px black;
+}
+#checkisnum{
+    color: red;
+}
+
+
+
+
+
+
+
+

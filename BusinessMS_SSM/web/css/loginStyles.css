@@ -1,0 +1,103 @@
+
+    /*初始化*/
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .a{
+        text-decoration:none;
+        color: inherit;
+    }
+    li{
+        list-style: none;
+    }
+
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    nav{
+        margin: 0;
+        padding: 0;
+    }
+    /*背景图*/
+    .img1{
+        width: 100%;
+        height: 635px;
+        background: url("../img/image12-2.jpg");
+        background-size: 100%;
+        overflow: hidden;
+    }
+    /*表单*/
+    .formbox{
+        width: 500px;
+        height: 250px;
+        border: 1px solid black;
+        box-shadow:2px 2px 2px black;
+        margin: 0 auto;
+        margin-top: 120px;
+        overflow: hidden;
+        text-align: center;
+    }
+    .ultext{
+        width: 388px;
+        margin:50px auto 0;
+        /*float: left;*/
+        /*margin-top: 50px;
+        margin-left: 50px;*/
+    }
+    .ultext li{
+        text-align: right;
+        margin-top: 20px;
+        /*padding-right: 120px;*/
+        overflow:hidden;
+    }
+    .ultext li *{
+        float:left;
+    }
+    .ultext li .d1{
+        width: 200px;
+        height: 35px;
+        padding-left: 10px;
+        border-radius: 8px;
+    }
+    .ultext li span{
+        /*padding-right: 20px;
+        padding-left: 10px;*/
+        width:58px;
+        text-align: right;
+        margin-right: 20px;
+        line-height: 38px;
+        font-family: "Microsoft YaHei";
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .ultext li p{
+        /*padding-right: 20px;
+        padding-left: 10px;*/
+        width:100px;
+        line-height: 30px;
+        margin-left: 10px;
+        font-family: "Microsoft YaHei";
+        font-size:14px;
+        color:red;
+
+    }
+    .ultext li .sub{
+        font-size: 24px;
+        color: white;
+        border-radius: 5px;
+        background-color: rgb(92,184,92);
+        margin-left: 100px;
+        width: 100px;
+        height: 36px;
+        box-shadow: 5px 3px 3px rgb(138, 143, 145);
+        padding-top:5px;
+        padding-bottom:35px;
+    }
+
+
+
+
+
+

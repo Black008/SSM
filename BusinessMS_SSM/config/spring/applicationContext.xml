@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd ">
+	<!-- 扫描controller包 -->
+	<context:component-scan base-package="cn.com.zhirun.ssm0514.controller"></context:component-scan>
+    <!-- 开启注解方式 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+    <mvc:resources mapping="/img/**" location="/img/" />
+    <mvc:resources mapping="/js/**" location="/js/" />
+    <mvc:resources mapping="/css/**" location="/css/" />
+	<!-- 视图解析器 进行jsp解析，默认使用jstl标签，classpath下的得有jstl的包 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 配置jsp路径的前缀 -->
+		<property name="prefix" value="/jsp/" />
+		<!-- 配置jsp路径的后缀 -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!--
+  @ResponseBody之后返回字符串中中文可能会出现乱码 因为sping
+  mvc默认是text/plain;charset=ISO-8859-1，要支持中需做如下配置指定编码格式
+ -->
+ <bean
+  class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+  <property name="messageConverters">
+   <list>
+    <bean
+     class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+     <property name="supportedMediaTypes">
+      <list>
+       <!--返回字符串格式json-->
+       <value>application/json;charset=UTF-8</value>
+      </list>
+     </property>
+    </bean>
+   </list>
+  </property>
+ </bean>
+
+<!--
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/member/*"/>
+            <bean class="cn.com.zhirun.ssm0514.interceptor.MyInterceptor">
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+
+
+</beans>

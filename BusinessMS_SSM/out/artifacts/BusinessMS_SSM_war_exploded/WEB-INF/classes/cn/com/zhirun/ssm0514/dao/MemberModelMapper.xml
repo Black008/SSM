@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.zhirun.ssm0514.dao.MemberModelMapper">
+  <resultMap id="BaseResultMap" type="cn.com.zhirun.ssm0514.model.MemberModel">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="SALARY" jdbcType="DOUBLE" property="salary" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from member
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.com.zhirun.ssm0514.model.MemberModel">
+    insert into member (ID, NAME, SEX, 
+      SALARY, department)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=DOUBLE}, #{department,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.zhirun.ssm0514.model.MemberModel">
+    update member
+    set NAME = #{name,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      SALARY = #{salary,jdbcType=DOUBLE},
+      department = #{department,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ID, NAME, SEX, SALARY, department
+    from member
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, NAME, SEX, SALARY, department
+    from member
+  </select>
+</mapper>

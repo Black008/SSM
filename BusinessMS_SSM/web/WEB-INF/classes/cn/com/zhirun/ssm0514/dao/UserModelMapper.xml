@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.zhirun.ssm0514.dao.UserModelMapper">
+  <resultMap id="BaseResultMap" type="cn.com.zhirun.ssm0514.model.UserModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user" jdbcType="VARCHAR" property="user" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="credate" jdbcType="VARCHAR" property="credate" />
+    <result column="upddate" jdbcType="VARCHAR" property="upddate" />
+    <result column="deleflg" jdbcType="INTEGER" property="deleflg" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.com.zhirun.ssm0514.model.UserModel">
+    insert into t_user (id, user, pwd, 
+      credate, upddate, deleflg
+      )
+    values (#{id,jdbcType=INTEGER}, #{user,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{credate,jdbcType=VARCHAR}, #{upddate,jdbcType=VARCHAR}, #{deleflg,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.zhirun.ssm0514.model.UserModel">
+    update t_user
+    set user = #{user,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      credate = #{credate,jdbcType=VARCHAR},
+      upddate = #{upddate,jdbcType=VARCHAR},
+      deleflg = #{deleflg,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, user, pwd, credate, upddate, deleflg
+    from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, user, pwd, credate, upddate, deleflg
+    from t_user
+  </select>
+</mapper>
